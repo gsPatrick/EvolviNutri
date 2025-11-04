@@ -1,0 +1,45 @@
+/* src/components/Header/Header.module.css */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  background: rgba(26, 26, 26, 0.5);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(50, 168, 82, 0.2);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+.ctaButton {
+  background-color: var(--primary-green);
+  color: var(--white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-family: var(--font-title);
+  transition: all 0.3s ease;
+  border: 1px solid var(--primary-green);
+}
+
+.ctaButton:hover {
+  background-color: transparent;
+  color: var(--primary-green);
+}

@@ -1,0 +1,204 @@
+/* /src/app/pagamento/Pagamento.module.css */
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 8rem 2rem 2rem;
+    background-image: radial-gradient(circle at 50% 50%, rgba(30, 144, 255, 0.15), transparent 50%);
+}
+
+.paymentContainer {
+    width: 100%;
+    max-width: 900px;
+    background: #252525;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.shieldIcon {
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+}
+
+.header h2 {
+    font-size: 2.5rem;
+}
+
+.header p {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+
+.plans {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.planCard {
+    background: #333333;
+    border: 2px solid #555;
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.premium {
+    border-color: var(--primary-green);
+    transform: scale(1.05);
+}
+
+.premiumBadge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-green);
+    color: var(--white);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.planCard h3 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 2rem;
+}
+
+.price span {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.7;
+    margin-left: 0.5rem;
+}
+
+.features {
+    list-style: none;
+    margin-bottom: 2rem;
+    flex-grow: 1; /* Empurra o botão para baixo */
+}
+
+.features li {
+    margin-bottom: 0.75rem;
+    opacity: 0.9;
+}
+
+.features b {
+    color: var(--primary-green);
+}
+
+.payButton, .payButtonPremium {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.payButton {
+    background-color: #555;
+    border: none;
+    color: var(--white);
+}
+
+.payButton:hover:not(:disabled) {
+    background-color: #666;
+}
+
+.payButtonPremium {
+    background: var(--primary-green);
+    border: none;
+    color: var(--white);
+}
+
+.payButtonPremium:hover:not(:disabled) {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px var(--primary-green);
+}
+
+/* --- ESTILOS ADICIONAIS PARA INTEGRAÇÃO --- */
+
+/* Estilo para botões desabilitados durante o carregamento */
+.payButton:disabled, .payButtonPremium:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Animação para o ícone de carregamento */
+.loader {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Estilo para a mensagem de erro */
+.errorMessage {
+    text-align: center;
+    color: #ff4d4d; /* Tom de vermelho para erros */
+    background-color: rgba(255, 77, 77, 0.1);
+    border: 1px solid #ff4d4d;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.secureFooter {
+    text-align: center;
+    margin-top: 3rem;
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .plans {
+        grid-template-columns: 1fr;
+    }
+    .premium {
+        transform: scale(1);
+    }
+    .paymentContainer {
+        padding: 2rem 1.5rem;
+    }
+}
+
+.highlight {
+    box-shadow: 0 0 25px var(--tech-blue), 0 0 10px var(--tech-blue) inset;
+    border-color: var(--tech-blue);
+}

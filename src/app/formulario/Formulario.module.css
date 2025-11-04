@@ -1,0 +1,103 @@
+/* src/app/formulario/Formulario.module.css */
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 8rem 2rem 2rem; /* Espaço para o Header */
+    background-image: radial-gradient(circle at 20% 80%, rgba(50, 168, 82, 0.1), transparent 40%),
+                      radial-gradient(circle at 80% 30%, rgba(30, 144, 255, 0.1), transparent 40%);
+}
+
+.formContainer {
+    width: 100%;
+    max-width: 700px;
+    background: #252525;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.header h2 {
+    font-size: 2.5rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    font-size: 1.1rem;
+    color: var(--light-gray);
+    opacity: 0.8;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.form input,
+.form select,
+.form textarea {
+    width: 100%;
+    background-color: #333;
+    border: 2px solid #555;
+    color: var(--white);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 10px rgba(50, 168, 82, 0.4);
+}
+
+.form textarea {
+    resize: vertical;
+}
+
+.submitButton {
+    width: 100%;
+    margin-top: 2.5rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white);
+    background: linear-gradient(90deg, var(--tech-blue) 0%, var(--primary-green) 100%);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(30, 144, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+    .formContainer {
+        padding: 2rem 1.5rem;
+    }
+    .header h2 {
+        font-size: 2rem;
+    }
+}

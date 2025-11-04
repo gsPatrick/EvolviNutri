@@ -1,0 +1,65 @@
+/* src/components/Hero/Hero.module.css */
+
+.hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 8rem 2rem 2rem; /* Espaço para o header */
+  text-align: center;
+  overflow: hidden;
+}
+
+.backgroundGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(30, 144, 255, 0.15) 0%, rgba(50, 168, 82, 0.1) 35%, transparent 70%);
+  transform: translate(-50%, -50%);
+  filter: blur(50px);
+  z-index: -1;
+}
+
+.content {
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  max-width: 650px;
+  color: var(--light-gray);
+  opacity: 0.8;
+}
+
+.calculatorPlaceholder {
+    margin-top: 2rem;
+    width: 100%;
+    /* Estilos temporários */
+    min-height: 200px;
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+}

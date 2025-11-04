@@ -1,0 +1,243 @@
+/* src/components/Calculator/Calculator.module.css */
+
+.calculatorWrapper {
+    width: 100%;
+    max-width: 600px; /* Mais estreito para focar no fluxo vertical */
+    margin: 2rem auto;
+    background: transparent; /* O fundo agora está na seção Hero */
+}
+
+/* --- SEÇÕES DO FORMULÁRIO --- */
+.formSection {
+    background: #252525;
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.sectionTitle {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--primary-green);
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+.sectionTitle::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: var(--tech-blue);
+    margin: 0.5rem auto 1.5rem;
+}
+
+/* --- CUSTOM RADIO BUTTONS --- */
+.radioGrid, .radioGridThree {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.radioGridThree {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.radioCard {
+    background-color: #333;
+    border: 2px solid #555;
+    color: var(--light-gray);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-weight: 500;
+}
+
+.radioCard:hover {
+    border-color: var(--primary-green);
+}
+
+.radioCard.selected {
+    border-color: var(--tech-blue);
+    color: var(--tech-blue);
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(30, 144, 255, 0.3);
+}
+
+/* Esconde o input de rádio real */
+.radioCard input[type="radio"] {
+    display: none;
+}
+
+.biotypeImage {
+    display: block;
+    margin: 0 auto 1.5rem;
+    max-width: 80%;
+    height: auto;
+}
+
+
+/* --- INPUTS E SELECTS --- */
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+.inputGroup:last-child {
+    margin-bottom: 0;
+}
+
+.inputGroup label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.inputGroup input, .inputGroup select {
+    background-color: #333;
+    border: 2px solid #555;
+    color: var(--white);
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.inputGroup input:focus, .inputGroup select:focus {
+    outline: none;
+    border-color: var(--tech-blue);
+}
+
+/* --- BOTÃO PRINCIPAL --- */
+.ctaButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--white);
+    background: linear-gradient(90deg, var(--tech-blue) 0%, var(--primary-green) 100%);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
+}
+
+/* --- SEÇÃO DE RESULTADOS --- */
+.resultsContainer {
+    margin-top: 4rem;
+}
+
+.resultsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.resultBlock {
+    background: #252525;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.resultBlock p {
+    margin: 0;
+    opacity: 0.8;
+}
+
+.resultValue {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+}
+
+.resultBlock.highlight {
+    background: linear-gradient(45deg, var(--tech-blue), var(--primary-green));
+}
+.resultBlock.highlight p {
+    color: white;
+    opacity: 1;
+}
+
+/* --- SEÇÃO DE MACROS --- */
+.macrosSection {
+    background: #252525;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+}
+.macrosTitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+.macrosGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    gap: 1rem;
+}
+.macrosGrid h4 {
+    font-weight: 500;
+    color: var(--light-gray);
+    opacity: 0.8;
+}
+.macrosGrid span {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--white);
+}
+
+/* --- BOTÃO PARA PRÓXIMA ETAPA --- */
+.nextStepButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    margin-top: 2rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    background: var(--primary-green);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.nextStepButton:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px var(--primary-green);
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 640px) {
+    .formSection {
+        padding: 1.5rem;
+    }
+    .radioGridThree {
+        grid-template-columns: 1fr;
+    }
+    .radioGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Adicione este código ao final de Calculator.module.css */
+
+.ctaButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #555;
+    box-shadow: none;
+}

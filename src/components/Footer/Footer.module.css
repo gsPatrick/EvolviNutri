@@ -1,0 +1,142 @@
+/* src/components/Footer/Footer.module.css */
+
+.footerWrapper {
+    background-color: var(--dark-gray);
+    padding: 0 2rem;
+}
+
+.mainFooter {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #252525;
+    border-radius: 24px;
+    padding: 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    position: relative;
+    bottom: -50px; /* Efeito "puxado" para cima */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footerColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+.logo h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.description {
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+}
+
+.socials {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto; /* Empurra para o final da coluna */
+}
+.socialIcon {
+    color: var(--light-gray);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.socialIcon:hover {
+    color: var(--primary-green);
+    transform: translateY(-3px);
+}
+
+.columnTitle {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--light-gray);
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.contactLink {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.2;
+    transition: color 0.3s ease;
+}
+.contactLink:hover {
+    color: var(--primary-green);
+}
+
+.subLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    color: var(--primary-green);
+    font-weight: 500;
+    transition: gap 0.3s ease;
+}
+.subLink:hover {
+    gap: 0.8rem;
+}
+
+/* --- Barra de Créditos --- */
+.creditBar {
+    background-color: #1a1a1a;
+    text-align: center;
+    padding: 4.5rem 2rem 1.5rem; /* Padding-top maior para compensar o footer flutuante */
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+.creditBar a {
+    color: var(--tech-blue);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom-color 0.3s ease;
+}
+.creditBar a:hover {
+    border-bottom-color: var(--tech-blue);
+}
+
+/* --- Botão Flutuante do WhatsApp --- */
+.whatsappButton {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: #25D366; /* Cor oficial do WhatsApp */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.whatsappButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+    .mainFooter {
+        padding: 2.5rem;
+        bottom: -40px;
+    }
+    .contactLink {
+        font-size: 1.8rem;
+    }
+}
