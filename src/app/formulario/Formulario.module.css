@@ -1,103 +1,156 @@
-/* src/app/formulario/Formulario.module.css */
+/* /src/app/formulario/Formulario.module.css */
 
 .main {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     min-height: 100vh;
-    padding: 8rem 2rem 2rem; /* Espaço para o Header */
-    background-image: radial-gradient(circle at 20% 80%, rgba(50, 168, 82, 0.1), transparent 40%),
-                      radial-gradient(circle at 80% 30%, rgba(30, 144, 255, 0.1), transparent 40%);
+    padding: 8rem 2rem 2rem;
+    background-image: radial-gradient(circle at 50% 50%, rgba(50, 168, 82, 0.1), transparent 50%);
 }
 
 .formContainer {
     width: 100%;
-    max-width: 700px;
+    max-width: 550px;
     background: #252525;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    padding: 3rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    padding: 2.5rem 3rem;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
 }
 
 .header {
     text-align: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
 
-.header h2 {
+.title {
     font-size: 2.5rem;
     color: var(--white);
     margin-bottom: 0.5rem;
 }
 
-.header p {
+.subtitle {
     font-size: 1.1rem;
     color: var(--light-gray);
     opacity: 0.8;
 }
 
-.formGrid {
-    display: grid;
-    grid-template-columns: 1fr;
+.planInfo {
+    text-align: center;
+    background-color: rgba(50, 168, 82, 0.1);
+    border: 1px solid var(--primary-green);
+    padding: 0.8rem;
+    border-radius: 10px;
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+}
+
+.planInfo span {
+    font-weight: 700;
+    color: var(--primary-green);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
 }
 
-.form input,
-.form select,
-.form textarea {
+.inputGroup {
+    position: relative;
+}
+
+.inputIcon {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.inputField {
     width: 100%;
     background-color: #333;
     border: 2px solid #555;
     color: var(--white);
-    padding: 1rem;
+    padding: 1rem 1rem 1rem 3rem; /* Espaço para o ícone */
     border-radius: 8px;
     font-size: 1rem;
     transition: all 0.3s ease;
-    font-family: var(--font-body);
 }
 
-.form input::placeholder,
-.form textarea::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.form input:focus,
-.form select:focus,
-.form textarea:focus {
+.inputField:focus {
     outline: none;
-    border-color: var(--primary-green);
-    box-shadow: 0 0 10px rgba(50, 168, 82, 0.4);
+    border-color: var(--tech-blue);
+    box-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
 }
 
-.form textarea {
-    resize: vertical;
+.errorMessage {
+    color: #ff4d4d;
+    background-color: rgba(255, 77, 77, 0.1);
+    border: 1px solid #ff4d4d;
+    padding: 0.8rem;
+    border-radius: 8px;
+    text-align: center;
 }
 
 .submitButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
     width: 100%;
-    margin-top: 2.5rem;
     padding: 1rem;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--white);
     background: linear-gradient(90deg, var(--tech-blue) 0%, var(--primary-green) 100%);
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
+    margin-top: 1rem;
 }
 
-.submitButton:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 20px rgba(30, 144, 255, 0.5);
+.submitButton:hover:not(:disabled) {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(50, 168, 82, 0.4);
 }
 
-@media (max-width: 768px) {
+.submitButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Estilos para o estado de loading do Suspense */
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    min-height: 400px;
+    color: var(--light-gray);
+    opacity: 0.8;
+}
+
+@media (max-width: 600px) {
     .formContainer {
         padding: 2rem 1.5rem;
     }
-    .header h2 {
+    .title {
         font-size: 2rem;
     }
 }
