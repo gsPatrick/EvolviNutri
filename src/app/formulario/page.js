@@ -3,14 +3,11 @@
 import { Suspense } from 'react';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
-import FormularioClient from './FormularioClient'; // <-- Importa o novo componente
+import FormularioClient from './FormularioClient'; // <-- Importa o seu formulário
 import styles from './Formulario.module.css';
 import { LoaderCircle } from 'lucide-react';
 
-/**
- * Componente de fallback que será exibido enquanto o formulário principal está carregando.
- * Isso é essencial para o <Suspense> funcionar.
- */
+// Componente de carregamento que aparece enquanto o formulário é preparado
 function FormularioLoading() {
     return (
         <div className={styles.loadingContainer}>
@@ -25,12 +22,6 @@ export default function FormularioPage() {
         <>
             <Header />
             <main className={styles.main}>
-                {/* 
-                  A MÁGICA ACONTECE AQUI:
-                  <Suspense> diz ao Next.js para renderizar o 'fallback' (nosso componente de loading)
-                  no servidor, e só tentar renderizar <FormularioClient /> quando ele estiver
-                  no navegador do cliente. Isso evita que o hook 'useSearchParams' quebre o build.
-                */}
                 <Suspense fallback={<FormularioLoading />}>
                     <FormularioClient />
                 </Suspense>

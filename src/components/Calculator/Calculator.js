@@ -239,15 +239,6 @@ export default function Calculator() {
                              </div>
                         </motion.div>
                         <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: 0.8}}>
-                            {/*
-                              ================================================================
-                              == AQUI ESTÁ A ÚNICA MUDANÇA NECESSÁRIA ==
-                              Trocamos href="/formulario" por href="#planos"
-                              Isso faz a página rolar para a seção de planos em vez de navegar,
-                              forçando o usuário a escolher um plano e, assim, adicionar
-                              o parâmetro '?plan=...' na URL ao clicar.
-                              ================================================================
-                            */}
                             <a href="#planos" className={styles.nextStepButton}>
                                 <TrendingUp size={20} /> Escolher Meu Plano Agora
                             </a>

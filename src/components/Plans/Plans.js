@@ -9,7 +9,7 @@ const plans = [
     {
         name: "Plano Básico",
         price: "R$ 97",
-        planKey: "basic", // <-- Chave usada para criar a URL
+        planKey: "basic", // <-- Chave para o parâmetro de URL
         features: [
             "Plano Alimentar 100% Personalizado",
             "Gerado por Inteligência Artificial",
@@ -23,7 +23,7 @@ const plans = [
     {
         name: "Plano Premium",
         price: "R$ 197",
-        planKey: "premium", // <-- Chave usada para criar a URL
+        planKey: "premium", // <-- Chave para o parâmetro de URL
         features: [
             "Tudo do Plano Básico",
             "Acompanhamento profissional via WhatsApp",
@@ -60,15 +60,7 @@ export default function Plans() {
                                 </li>
                             ))}
                         </ul>
-                        {/* 
-                          ==============================================================
-                          == PONTO CRÍTICO DA CORREÇÃO ==
-                          Este link abaixo é o responsável por levar o usuário ao formulário.
-                          O `href` está configurado para `/formulario` e passa o plano
-                          selecionado como um parâmetro de URL (`?plan=...`).
-                          Isto está CORRETO.
-                          ==============================================================
-                        */}
+                        {/* --- O link aqui está correto e leva para o formulário --- */}
                         <a href={`/formulario?plan=${plan.planKey}`} className={styles.ctaButton}>
                             {plan.cta}
                         </a>
