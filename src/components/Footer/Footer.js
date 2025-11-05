@@ -1,5 +1,5 @@
 // src/components/Footer/Footer.js
-import { Dna, Instagram, Facebook, ArrowRight, MessageCircle } from 'lucide-react';
+import { Dna, ArrowRight, MessageCircle } from 'lucide-react';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -14,16 +14,12 @@ export default function Footer() {
                     <p className={styles.description}>
                         Ciência e tecnologia para desbloquear o seu máximo potencial.
                     </p>
-                    <div className={styles.socials}>
-                        <a href="#" aria-label="Instagram" className={styles.socialIcon}><Instagram size={22} /></a>
-                        <a href="#" aria-label="Facebook" className={styles.socialIcon}><Facebook size={22} /></a>
-                    </div>
                 </div>
 
                 <div className={styles.footerColumn}>
                     <h4 className={styles.columnTitle}>Suporte ao Cliente</h4>
-                    <a href="tel:+5511999998888" className={styles.contactLink}>
-                        (11) 99999-8888
+                    <a href="tel:+5513997433976" className={styles.contactLink}>
+                        (13) 99743-3976
                     </a>
                     <a href="#" className={styles.subLink}>
                         Central de Atendimento <ArrowRight size={16} />
@@ -32,23 +28,31 @@ export default function Footer() {
 
                 <div className={styles.footerColumn}>
                     <h4 className={styles.columnTitle}>Consultoria Premium</h4>
-                    <a href="tel:+5511999997777" className={styles.contactLink}>
-                        (11) 99999-7777
+                    <a href="tel:+5513981086937" className={styles.contactLink}>
+                        (13) 98108-6937
                     </a>
-                     <a href="#" className={styles.subLink}>
+                    <a href="#" className={styles.subLink}>
                         Fale com um especialista <ArrowRight size={16} />
                     </a>
                 </div>
             </footer>
+
             <div className={styles.creditBar}>
                 <p>
-                    Desenvolvido por <a href="https://www.codebypatrick.dev/" target="_blank" rel="noopener noreferrer">Patrick.Developer</a>
+                    Desenvolvido por{' '}
+                    <a
+                        href="https://www.codebypatrick.dev/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Patrick.Developer
+                    </a>
                 </p>
             </div>
 
             {/* Botão Flutuante do WhatsApp */}
             <a 
-                href="https://wa.me/SEUNUMERODOWHATSAPP" 
+                href="https://wa.me/5513981086937" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className={styles.whatsappButton}
