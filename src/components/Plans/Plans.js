@@ -8,28 +8,30 @@ import styles from './Plans.module.css';
 const plans = [
     {
         name: "Plano Básico",
-        price: "R$ 97",
-        planKey: "basic", // <-- Chave para o parâmetro de URL
-        features: [
-            "Plano Alimentar 100% Personalizado",
-            "Gerado por Inteligência Artificial",
-            "Lista de Compras Automatizada",
-            "Guia de Suplementação Essencial",
-            "Acesso via PDF"
+        price: "R$ 47", // PREÇO ATUALIZADO
+        planKey: "basic",
+        features: [ // FEATURES ATUALIZADAS
+            "Plano alimentar 100% personalizado e individualizado",
+            "Lista de compras automatizada",
+            "Guia de Suplementação básica",
+            "Acesso via PDF",
+            "1 contato com o Nutricionista a cada 15 dias (via e-mail)"
         ],
         cta: "Selecionar Plano Básico",
         isPremium: false
     },
     {
         name: "Plano Premium",
-        price: "R$ 197",
-        planKey: "premium", // <-- Chave para o parâmetro de URL
-        features: [
+        price: "R$ 397", // PREÇO ATUALIZADO
+        planKey: "premium",
+        features: [ // FEATURES ATUALIZADAS
             "Tudo do Plano Básico",
-            "Acompanhamento profissional via WhatsApp",
+            "1 chamada de vídeo com Nutricionista de 1 hora",
             "Ajustes mensais na dieta",
-            "Bônus: Guia de Treinos para seus objetivos",
-            "Suporte prioritário"
+            "Feedback semanais",
+            "Suporte prioritário",
+            "Bônus: Avaliação de treino com profissional de educação física",
+            "Livro de receitas práticas para o dia-a-dia"
         ],
         cta: "Selecionar Plano Premium",
         isPremium: true
@@ -39,6 +41,7 @@ const plans = [
 export default function Plans() {
     return (
         <section className={styles.plansSection} id="planos">
+            {/* TÍTULO ATUALIZADO */}
             <h2 className={styles.title}>Dê o próximo passo para sua evolução.</h2>
             <div className={styles.plansContainer}>
                 {plans.map((plan, index) => (
@@ -60,7 +63,6 @@ export default function Plans() {
                                 </li>
                             ))}
                         </ul>
-                        {/* --- O link aqui está correto e leva para o formulário --- */}
                         <a href={`/formulario?plan=${plan.planKey}`} className={styles.ctaButton}>
                             {plan.cta}
                         </a>
