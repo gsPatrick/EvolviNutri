@@ -123,3 +123,36 @@
         font-size: 2.2rem;
     }
 }
+
+/* --- ESTILOS ADICIONADOS PARA A SEÇÃO DE GARANTIA --- */
+.guaranteeSection {
+    max-width: 700px;
+    margin: 5rem auto 0;
+    padding: 2.5rem;
+    background: #252525;
+    border: 1px solid var(--primary-green);
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(50, 168, 82, 0.2);
+}
+
+.guaranteeIcon {
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+}
+
+.guaranteeTitle {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.guaranteeText {
+    font-size: 1rem;
+    opacity: 0.9;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.guaranteeCondition {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}

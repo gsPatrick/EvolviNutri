@@ -79,7 +79,7 @@ export default function Calculator() {
         } else { // feminino
             tmb = 10 * peso + 6.25 * altura - 5 * idade - 161;
         }
-        tmb = Math.max(tmb, 1000); // Garante TMB mínimo de 1000 kcal
+        tmb = Math.max(tmb, 1000);
 
         // --- 2) Ajuste por Estado Atual ---
         const fatoresTMB = {
@@ -116,40 +116,36 @@ export default function Calculator() {
         calorias_totais = Math.max(calorias_totais, minCalorias);
         calorias_totais = Math.round(calorias_totais);
 
-        // --- 6 & 7) Cálculo de Macronutrientes ---
-        // Tabelas de parâmetros
-        const proteinasBase = {
-            emagrecer_leve: 2.2, emagrecer_agressivo: 2.4, manter_peso: 2.0, ganhos_secos: 2.0, ganhar_agressivo: 1.8,
+        // ================= INÍCIO DA SEÇÃO MODIFICADA =================
+        // --- 6) Cálculo de Macronutrientes (LÓGICA ATUALIZADA CONFORME SOLICITADO) ---
+        
+        // Fatores de proteína por kg de peso corporal, baseados no estado atual.
+        const fatoresProteina = {
+            muito_acima_peso: 1.8,
+            magro: 2.0,
+            falso_magro: 2.15,
+            magro_gordura_moderada: 2.2,
         };
-        const gordurasPct = {
-            emagrecer_leve: 0.25, emagrecer_agressivo: 0.25, manter_peso: 0.30, ganhos_secos: 0.25, ganhar_agressivo: 0.25,
-        };
-        const ajustesProteinaEstado = {
-            magro: 0.95, magro_gordura_moderada: 1.0, falso_magro: 1.15, muito_acima_peso: 1.05,
-        };
-        
-        // Proteína
-        let proteina_por_kg = (proteinasBase[objetivo] || 2.0) * (ajustesProteinaEstado[estado_atual] || 1.0);
-        proteina_por_kg = Math.max(proteina_por_kg, 1.2); // Garante proteína mínima
-        let proteina_g = peso * proteina_por_kg;
-        let calorias_proteina = proteina_g * 4;
-        
-        // Gordura
-        let gordura_pct_valor = gordurasPct[objetivo] || 0.25;
-        let calorias_gordura = calorias_totais * gordura_pct_valor;
-        let gordura_g = calorias_gordura / 9;
-        
-        // Carboidratos (o que sobra)
-        let calorias_restantes = calorias_totais - (calorias_proteina + calorias_gordura);
-        let carboidrato_g = calorias_restantes / 4;
-        
-        // Validação final de carboidratos
-        if (carboidrato_g < 0) {
-            carboidrato_g = 0; // Zera carboidratos
-            calorias_restantes = calorias_totais - calorias_proteina;
-            gordura_g = Math.max(calorias_restantes / 9, peso * 0.3); // Recalcula gordura, respeitando mínimo
-        }
 
+        // Gordura: Fixa em 0.8g por kg de peso corporal.
+        const gordura_g = peso * 0.8;
+        const calorias_gordura = gordura_g * 9;
+
+        // Proteína: Varia conforme o estado atual, com um padrão de 2.0g/kg.
+        const proteina_multiplicador = fatoresProteina[estado_atual] || 2.0;
+        const proteina_g = peso * proteina_multiplicador;
+        const calorias_proteina = proteina_g * 4;
+
+        // Carboidratos: O restante das calorias.
+        const calorias_restantes = calorias_totais - calorias_proteina - calorias_gordura;
+        let carboidrato_g = calorias_restantes / 4;
+
+        // Validação para garantir que carboidratos não fiquem negativos.
+        if (carboidrato_g < 0) {
+            carboidrato_g = 0;
+        }
+        // ================== FIM DA SEÇÃO MODIFICADA ==================
+        
         // --- Arredondamentos Finais ---
         setResults({
             tmb: Math.round(tmb),

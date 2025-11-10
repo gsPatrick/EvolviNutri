@@ -2,7 +2,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, ShieldCheck } from 'lucide-react'; // Importei o ShieldCheck
 import styles from './Plans.module.css';
 
 const plans = [
@@ -41,7 +41,6 @@ const plans = [
 export default function Plans() {
     return (
         <section className={styles.plansSection} id="planos">
-            {/* TÍTULO ATUALIZADO */}
             <h2 className={styles.title}>Dê o próximo passo para sua evolução.</h2>
             <div className={styles.plansContainer}>
                 {plans.map((plan, index) => (
@@ -69,6 +68,25 @@ export default function Plans() {
                     </motion.div>
                 ))}
             </div>
+
+            {/* --- SEÇÃO DE GARANTIA ADICIONADA --- */}
+            <motion.div 
+                className={styles.guaranteeSection}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+            >
+                <ShieldCheck size={32} className={styles.guaranteeIcon} />
+                <h3 className={styles.guaranteeTitle}>Garantia de Resultado ou Seu Dinheiro de Volta</h3>
+                <p className={styles.guaranteeText}>
+                    Você tem 100% de segurança no investimento.
+                    Se, após 30 dias de acompanhamento e registro completo das refeições, nenhum resultado for alcançado, nós reembolsamos 100% do valor pago.
+                </p>
+                <p className={styles.guaranteeCondition}>
+                    📸 Basta enviar as fotos de todas as suas refeições durante o período contratado para validar a garantia.
+                </p>
+            </motion.div>
         </section>
     );
 }

@@ -108,7 +108,7 @@ export default function PagamentoPage() {
                         {/* Card do Plano Básico */}
                         <div className={`${styles.planCard} ${selectedPlan === 'basic' ? styles.highlight : ''}`}>
                             <h3>Plano Básico</h3>
-                            <p className={styles.price}>R$ 97<span>/único</span></p>
+                            <p className={styles.price}>R$ 47<span>/único</span></p> {/* PREÇO ATUALIZADO */}
                             <ul className={styles.features}>
                                 <li>Plano Alimentar Personalizado via IA</li>
                                 <li>Lista de Compras Automatizada</li>
@@ -128,7 +128,7 @@ export default function PagamentoPage() {
                         <div className={`${styles.planCard} ${styles.premium} ${selectedPlan === 'premium' ? styles.highlight : ''}`}>
                             <div className={styles.premiumBadge}>Recomendado</div>
                             <h3>Plano Premium</h3>
-                            <p className={styles.price}>R$ 197<span>/único</span></p>
+                            <p className={styles.price}>R$ 397<span>/único</span></p> {/* PREÇO ATUALIZADO */}
                             <ul className={styles.features}>
                                 <li><b>Tudo do Plano Básico +</b></li>
                                 <li>Acompanhamento profissional</li>
